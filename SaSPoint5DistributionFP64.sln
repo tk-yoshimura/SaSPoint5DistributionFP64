@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaSPoint5DistributionFP64", "SaSPoint5DistributionFP64\SaSPoint5DistributionFP64.csproj", "{734B181B-3F91-48AD-85CC-8E8B0F9017D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaSPoint5DistributionFP64Tests", "SaSPoint5DistributionFP64Tests\SaSPoint5DistributionFP64Tests.csproj", "{60250E19-003B-4E78-A55E-66F6517DD6B5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{734B181B-3F91-48AD-85CC-8E8B0F9017D6} = {734B181B-3F91-48AD-85CC-8E8B0F9017D6}
+	EndProjectSection
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SaSPoint5DistributionFP64ErrorVis", "SaSPoint5DistributionFP64ErrorVis\SaSPoint5DistributionFP64ErrorVis.pyproj", "{706E3B32-B70A-4A14-9B26-DC8D696F1DBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{734B181B-3F91-48AD-85CC-8E8B0F9017D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{734B181B-3F91-48AD-85CC-8E8B0F9017D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{734B181B-3F91-48AD-85CC-8E8B0F9017D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{734B181B-3F91-48AD-85CC-8E8B0F9017D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60250E19-003B-4E78-A55E-66F6517DD6B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60250E19-003B-4E78-A55E-66F6517DD6B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60250E19-003B-4E78-A55E-66F6517DD6B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60250E19-003B-4E78-A55E-66F6517DD6B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{706E3B32-B70A-4A14-9B26-DC8D696F1DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{706E3B32-B70A-4A14-9B26-DC8D696F1DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0521C4D6-A7C4-4375-92E2-4A722BC5224B}
+	EndGlobalSection
+EndGlobal
