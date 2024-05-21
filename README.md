@@ -1,7 +1,7 @@
 # SaSPoint5DistributionFP64
  SaSPoint5Distribution Double Precision Implement
  
-## Landau Distribution
+## SaSPoint5 Distribution
 See: [SaSPoint5Distribution](https://github.com/tk-yoshimura/SaSPoint5Distribution)  
 Double-Double Precision: [DoubleDoubleStatistic](https://github.com/tk-yoshimura/DoubleDoubleStatistic)  
 
