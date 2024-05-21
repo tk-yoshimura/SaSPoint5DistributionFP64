@@ -1,5 +1,5 @@
 # SaSPoint5DistributionFP64
- SaSPoint5Distribution Double Precision Implement
+ SaSPoint5 Distribution Double Precision Implement
  
 ## SaSPoint5 Distribution
 See: [SaSPoint5Distribution](https://github.com/tk-yoshimura/SaSPoint5Distribution)  
