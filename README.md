@@ -7,6 +7,7 @@ Double-Double Precision: [DoubleDoubleStatistic](https://github.com/tk-yoshimura
 
 ## Double Precision (IEEE 754) Approx
 [C# code](SaSPoint5DistributionFP64/SaSPoint5Distribution.cs)  
+[C++ code](SaSPoint5DistributionFP64_CPP/saspoint5_distribution.hpp)  
 
 ## Error
 
