@@ -147,65 +147,80 @@ namespace SaSPoint5DistributionFP64 {
         public string Formula => "p(x; mu, c) := stable_distribution(x; alpha = 1/2, beta = 0, mu, c)";
 
         private static class PDFPade {
-            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_0_0p25 = new(
+            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_0_0p125 = new(
                 new ReadOnlyCollection<double>([
                     6.36619772367581343076e-1,
-                    2.08695290618996857630e2,
-                    3.27138231260799880672e4,
-                    3.12635260622309707764e6,
-                    1.98048081337216511381e8,
-                    8.56483679198669196462e9,
-                    2.52897673008030765179e11,
-                    4.97565108033799014273e12,
-                    6.17809824993213970941e13,
-                    4.39359884488046050026e14,
-                    1.62407973388917606167e15,
-                    3.05602866995962977259e15,
-                    4.16283837663175466754e15,
-                    4.33932052046202879986e15,
-                    1.98037038829086082130e15,
-                    2.11673879981348951641e14,
+                    2.17275699713513462507e2,
+                    3.49063163361344578910e4,
+                    3.40332906932698464252e6,
+                    2.19485577044357440949e8,
+                    9.66086435948730562464e9,
+                    2.90571833690383003932e11,
+                    5.83089315593106044683e12,
+                    7.37911022713775715766e13,
+                    5.26757196603002476852e14,
+                    1.75780353683063527570e15,
+                    1.85883041942144306222e15,
+                    4.19828222275972713819e14,
                 ]),
                 new ReadOnlyCollection<double>([
                     1.00000000000000000000e0,
-                    3.27817795923715088045e2,
-                    5.14467532018582990645e4,
-                    4.93053225788651363719e6,
-                    3.14164883876153657006e8,
-                    1.37444895081586710404e10,
-                    4.15331400451571813658e11,
-                    8.56868997354451418025e12,
-                    1.17651029229388237648e14,
-                    1.03622647547110519740e15,
-                    5.60383117050645616112e15,
-                    1.78609307498162312531e16,
-                    3.40114300916463634855e16,
-                    4.63563483570838873155e16,
-                    4.77894054692871071343e16,
-                    2.65130046251435019059e16,
-                    5.00269030614708036673e15,
-                    1.28890058960331124978e14,
+                    3.41295871011779138155e2,
+                    5.48907134827349102297e4,
+                    5.36641455324410261980e6,
+                    3.48045461004960397915e8,
+                    1.54920747349701741537e10,
+                    4.76490595358644532404e11,
+                    1.00104823128402735005e13,
+                    1.39703522470411802507e14,
+                    1.23724881334160220266e15,
+                    6.47437580921138359461e15,
+                    1.77627318260037604066e16,
+                    2.04792815832538146160e16,
+                    7.45102534638640681964e15,
+                    3.68496090049571174527e14,
+                ])
+            );
+
+            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_0p125_0p25 = new(
+                new ReadOnlyCollection<double>([
+                    4.35668401768623200524e-1,
+                    7.12477357389655327116e0,
+                    4.02466317948738993787e1,
+                    9.04888497628205955839e1,
+                    7.56175387288619211460e1,
+                    1.26950253999694502457e1,
+                    -6.59304802132933325219e-1,
+                ]),
+                new ReadOnlyCollection<double>([
+                    1.00000000000000000000e0,
+                    1.98623818041545101115e1,
+                    1.52856383017632616759e2,
+                    5.70706902111659740041e2,
+                    1.06454927680197927878e3,
+                    9.13160352749764887791e2,
+                    2.58872466837209126618e2,
                 ])
             );
 
             private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_0p25_0p5 = new(
                 new ReadOnlyCollection<double>([
                     2.95645445681747568732e-1,
-                    1.97411200998490091540e0,
-                    2.96639538497923278703e0,
-                    -2.11314593078651532185e0,
-                    -3.24647624911685089557e0,
-                    -4.16259541605596944447e-1,
-                    1.40473115910450455571e-2,
+                    2.23779537590791610124e0,
+                    5.01302198171248036052e0,
+                    2.76363131116340641935e0,
+                    1.18134858311074670327e-1,
+                    2.00287083462139382715e-2,
+                    -7.53979800555375661516e-3,
+                    1.37294648777729527395e-3,
                 ]),
                 new ReadOnlyCollection<double>([
                     1.00000000000000000000e0,
-                    9.39607211623133600737e0,
-                    2.91651053913427485821e1,
-                    2.56594161726268984972e1,
-                    -2.43932432079171316468e1,
-                    -3.87779015677750197072e1,
-                    -9.84153122176909305802e0,
+                    1.02879626214781666701e1,
+                    3.85125274509784615691e1,
+                    6.18474367367800231625e1,
+                    3.77100050087302476029e1,
+                    5.41866360740066443656e0,
                 ])
             );
 
@@ -377,10 +392,13 @@ namespace SaSPoint5DistributionFP64 {
                 x = Abs(x);
 
                 double y;
-                if (x <= 0.25d) {
+                if (x <= 0.125d) {
                     Debug.WriteLine("pade minimum segment passed");
 
-                    y = ApproxUtil.Pade(x, pade_plus_0_0p25);
+                    y = ApproxUtil.Pade(x, pade_plus_0_0p125);
+                }
+                else if (x <= 0.25d) {
+                    y = ApproxUtil.Pade(x - 0.125d, pade_plus_0p125_0p25);
                 }
                 else if (x <= 0.5d) {
                     y = ApproxUtil.Pade(x - 0.25d, pade_plus_0p25_0p5);
@@ -666,207 +684,129 @@ namespace SaSPoint5DistributionFP64 {
         }
 
         private static class QuantilePade {
-
-            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_0p125_0p15625 = new(
-                new ReadOnlyCollection<double>([
-                    4.49147047287704191198e0,
-                    3.71414591873162733815e1,
-                    1.03480125109733625638e2,
-                    1.00005220470908823354e2,
-                    2.74730973141070583590e0,
-                    -1.49189870645073451633e1,
-                ]),
-                new ReadOnlyCollection<double>([
-                    1.00000000000000000000e0,
-                    -7.40327929970295513340e0,
-                    -2.07000208788561899835e1,
-                    1.26466884410752108685e2,
-                    2.98398241252531847810e2,
-                    2.44953613390623685184e1,
-                    -3.01956129294066642747e1,
-                ])
-            );
-
-            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_0p15625_0p1875 = new(
-                new ReadOnlyCollection<double>([
-                    2.83944503273842706084e0,
-                    1.67404492991634154469e1,
-                    2.61760101641248660785e1,
-                    4.92318752899232235761e0,
-                    -1.33297300307054215288e0,
-                ]),
-                new ReadOnlyCollection<double>([
-                    1.00000000000000000000e0,
-                    -7.91824101512135661001e0,
-                    -4.36560728869362624099e-1,
-                    7.35318086832885976497e1,
-                    1.23880777723503405014e1,
-                ])
-            );
-
-            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_0p1875_0p25 = new(
-                new ReadOnlyCollection<double>([
-                    1.28383277518932773555e0,
-                    1.54688305214846834739e1,
-                    6.21226143476123511484e1,
-                    8.79420018191270817296e1,
-                    1.79710864893179400702e1,
-                    -4.36296483289971333525e0,
-                ]),
-                new ReadOnlyCollection<double>([
-                    1.00000000000000000000e0,
-                    1.53476487482968293892e-1,
-                    -3.27465714746398966728e1,
-                    1.45811276737475915785e0,
-                    2.40881382059354704440e2,
-                    4.56347287861047693971e1,
-                ])
-            );
-
-            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_0p25_0p3125 = new(
-                new ReadOnlyCollection<double>([
-                    6.21997830440617022638e-1,
-                    8.11360490622525648490e0,
-                    3.54777843088616889615e1,
-                    5.57432092610261643096e1,
-                    1.52522387203702199687e1,
-                    -2.61310790608187412340e0,
-                ]),
-                new ReadOnlyCollection<double>([
-                    1.00000000000000000000e0,
-                    1.51582630412651833313e0,
-                    -2.40350415645727043604e1,
-                    -1.99617786212255367547e1,
-                    1.43144810168931016975e2,
-                    3.94332982945258486603e1,
-                ])
-            );
-
-            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_0p3125_0p375 = new(
-                new ReadOnlyCollection<double>([
-                    2.93390030300024489254e-1,
-                    5.16683967106977943664e0,
-                    2.97430566765511734325e1,
-                    6.04452611872185179046e1,
-                    2.33091461217488287282e1,
-                    -2.53187049065204826355e0,
-                ]),
-                new ReadOnlyCollection<double>([
-                    1.00000000000000000000e0,
-                    4.70163738422098119446e0,
-                    -2.04200239512608550672e1,
-                    -5.86169085045103369448e1,
-                    1.38804873716322353304e2,
-                    6.12970262611389719488e1,
-                ])
-            );
-
-            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_0p375_0p4375 = new(
-                new ReadOnlyCollection<double>([
-                    1.12403044179836065451e-1,
-                    9.66281090097717968770e0,
-                    2.82936597616711818703e2,
-                    3.70468489885038565990e3,
-                    2.20859955075149305099e4,
-                    4.88019507624858356395e4,
-                    4.74293142423451556386e3,
-                    -4.39007128051960125520e3,
-                ]),
-                new ReadOnlyCollection<double>([
-                    1.00000000000000000000e0,
-                    6.64372788710680763873e1,
-                    1.14299363729551464845e3,
-                    5.21928413581303380919e3,
-                    -1.48642173255156825356e4,
-                    -7.79821178543143197493e4,
-                    1.58132628754840899695e5,
-                ])
-            );
-
-            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_0p4375_0p46875 = new(
-                new ReadOnlyCollection<double>([
-                    5.11633396058323290276e-2,
-                    4.63682274468470911206e0,
-                    1.60248860748557199402e2,
-                    2.63720558501783652599e3,
-                    2.04317281067803852047e4,
-                    5.93233409946824883602e4,
-                    8.81331971324281446276e3,
-                ]),
-                new ReadOnlyCollection<double>([
-                    1.00000000000000000000e0,
-                    5.62583376348831271328e1,
-                    1.09471802023964334935e3,
-                    7.32578868098044330527e3,
-                    -5.79750588904401014870e3,
-                    -1.22300195620521909334e5,
-                    1.89789689002325527907e5,
-                ])
-            );
-
-            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_0p46875_0p484375 = new(
-                new ReadOnlyCollection<double>([
-                    2.48262870167331472810e-2,
-                    3.15160321160735006235e0,
-                    1.35873615593591715436e2,
-                    2.57741528351772386498e3,
-                    1.84962907958895484391e4,
-                    2.77498760256500183962e4,
-                    4.66650326473025064328e4,
-                ]),
-                new ReadOnlyCollection<double>([
-                    1.00000000000000000000e0,
-                    6.15450908942569260141e1,
-                    1.31938240470054998868e3,
-                    7.41488495176428683684e3,
-                    -2.89904373344249493042e4,
-                ])
-            );
-
-            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_0p484375_0p5 = new(
+            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_expm1_1p125 = new(
                 new ReadOnlyCollection<double>([
                     0.00000000000000000000e0,
-                    1.57079632679489658420e0,
-                    3.68677664732235740582e2,
-                    5.12991233169657765833e4,
-                    4.15925967174184357395e6,
-                    2.20306977390050161287e8,
-                    7.02631670287223054378e9,
-                    1.27090189596731191250e11,
-                    8.38808550969735622972e11,
-                    -4.95994728465451538598e11,
+                    1.36099130643975127045e-1,
+                    2.19634434498311523885e1,
+                    1.70276954848343179287e3,
+                    8.02187341786354339306e4,
+                    2.48750112198456813443e6,
+                    5.20617858300443231437e7,
+                    7.31202030685167303439e8,
+                    6.66061403138355591915e9,
+                    3.65687892725590813998e10,
+                    1.06061776220305595494e11,
+                    1.23930642673461465346e11,
+                    1.49986408149520127078e10,
+                    -6.17325587219357123900e8,
                 ]),
                 new ReadOnlyCollection<double>([
                     1.00000000000000000000e0,
-                    2.34707490998847188599e2,
-                    3.26086881866984488126e4,
-                    2.63628459501019657057e6,
-                    1.38653708172292751211e8,
-                    4.34560305046086344625e9,
-                    7.44152155659186741721e10,
-                    3.45841494519572088548e11,
-                    -2.83594324749756534784e12,
-                    4.11908049498574834947e12,
+                    1.63111146753825227716e2,
+                    1.27864461509685444043e4,
+                    6.10371533241799228037e5,
+                    1.92422115963507708309e7,
+                    4.11544185502250709497e8,
+                    5.95343302992055062258e9,
+                    5.65615858889758369947e10,
+                    3.30833154992293143503e11,
+                    1.06032392136054207216e12,
+                    1.50071282012095447931e12,
+                    5.43552396263989180433e11,
+                    9.57434915768660935004e10,
                 ])
             );
 
-            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_expm3_4 = new(
+            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_expm1p125_1p25 = new(
                 new ReadOnlyCollection<double>([
-                    1.19511170764405535039e-1,
-                    1.37927972427045248330e-1,
-                    5.24650188881053184583e-2,
-                    8.03959641438786924480e-3,
-                    7.65196262623027097818e-4,
-                    4.48726026525832428753e-5,
-                    -2.39900494956368998141e-7,
+                    1.46698650748920243698e-2,
+                    3.58380131788385557227e-1,
+                    3.39153750029553194566e0,
+                    1.55457424873957272207e1,
+                    3.44403897039657057261e1,
+                    3.01881531964962975320e1,
+                    2.77679052294606319767e0,
+                    -7.76665288232972435969e-2,
                 ]),
                 new ReadOnlyCollection<double>([
                     1.00000000000000000000e0,
-                    9.25160082350049994731e-1,
-                    3.05761874775646930171e-1,
-                    5.22137081244781154561e-2,
-                    4.97356364271483616303e-3,
-                    2.50262885907540348010e-4,
+                    1.72584280323876188464e1,
+                    1.11983518800147654866e2,
+                    3.25969893054048132145e2,
+                    3.91978809680672051666e2,
+                    1.29874252720714897530e2,
+                    2.08740114519610102248e1,
+                ])
+            );
+
+            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_expm1p25_1p5 = new(
+                new ReadOnlyCollection<double>([
+                    2.69627866689346445458e-2,
+                    3.23091180507445216811e-1,
+                    1.42164019533549860681e0,
+                    2.74613170828120023406e0,
+                    2.07865023346180997996e0,
+                    2.53267176863740856907e-1,
+                    -2.55816250186301841152e-2,
+                    3.02683750470398342224e-3,
+                ]),
+                new ReadOnlyCollection<double>([
+                    1.00000000000000000000e0,
+                    8.55049920135376003042e0,
+                    2.48726119139047911316e1,
+                    2.79519589592198994574e1,
+                    9.88212916161823866098e0,
+                    1.39749417956251951564e0,
+                ])
+            );
+
+            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_expm1p5_2 = new(
+                new ReadOnlyCollection<double>([
+                    4.79518653373241051274e-2,
+                    3.81837125793765918564e-1,
+                    1.13370353708146321188e0,
+                    1.55218145762186846509e0,
+                    9.60938271141036509605e-1,
+                    2.11811755464425606950e-1,
+                    8.84533960603915742831e-3,
+                    1.73314614571009160225e-3,
+                    -3.63491208733876986098e-5,
+                ]),
+                new ReadOnlyCollection<double>([
+                    1.00000000000000000000e0,
+                    6.36954463000253710936e0,
+                    1.40601897306833147611e1,
+                    1.33838075106916667084e1,
+                    5.60958095533108032859e0,
+                    1.11796035623375210182e0,
+                    1.12508482637488861060e-1,
+                    5.18503975949799718538e-3,
+                ])
+            );
+
+            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_expm2_4 = new(
+                new ReadOnlyCollection<double>([
+                    8.02395484493329835881e-2,
+                    2.46132933068351274622e-1,
+                    2.81820176867119231101e-1,
+                    1.47754061028371025893e-1,
+                    3.54638964490281023406e-2,
+                    3.99998730093393774294e-3,
+                    3.81581928434827040262e-4,
+                    1.82520920154354221101e-5,
+                    -2.06151396745690348445e-7,
+                    6.77986548138011345849e-9,
+                ]),
+                new ReadOnlyCollection<double>([
+                    1.00000000000000000000e0,
+                    2.39244329037830026691e0,
+                    2.12683465416376620896e0,
+                    9.02612272334554457823e-1,
+                    2.06667959191488815314e-1,
+                    2.79328968525257867541e-2,
+                    2.28216286216537879937e-3,
+                    1.04195690531437767679e-4,
                 ])
             );
 
@@ -968,84 +908,52 @@ namespace SaSPoint5DistributionFP64 {
                 ])
             );
 
-            private static readonly (ReadOnlyCollection<double> numer, ReadOnlyCollection<double> denom) pade_plus_expm64_96 = new(
-                new ReadOnlyCollection<double>([
-                    1.59154943091895335754e-1,
-                    1.01884113307066544176e-1,
-                ]),
-                new ReadOnlyCollection<double>([
-                    1.00000000000000000000e0,
-                    6.40156763765980698583e-1,
-                ])
-            );
-
             public static double Value(double x) {
                 if (x > 0.5) {
                     return -Value(1d - x);
                 }
 
-                if (x >= 0.125d) {
-                    double y;
-                    if (x <= 0.15625) {
-                        y = ApproxUtil.Pade(0.15625 - x, pade_plus_0p125_0p15625);
+                double v;
+                int exponent = ILogB(x);
+
+                if (exponent >= -2) {
+                    double u = -Log2(ScaleB(x, 1));
+
+                    if (u <= 0.125) {
+                        v = ApproxUtil.Pade(u, pade_plus_expm1_1p125);
                     }
-                    else if (x <= 0.1875) {
-                        y = ApproxUtil.Pade(0.1875 - x, pade_plus_0p15625_0p1875);
+                    else if (u <= 0.25) {
+                        v = ApproxUtil.Pade(u - 0.125, pade_plus_expm1p125_1p25);
                     }
-                    else if (x <= 0.25) {
-                        y = ApproxUtil.Pade(0.25 - x, pade_plus_0p1875_0p25);
-                    }
-                    else if (x <= 0.3125) {
-                        y = ApproxUtil.Pade(0.3125 - x, pade_plus_0p25_0p3125);
-                    }
-                    else if (x <= 0.375) {
-                        y = ApproxUtil.Pade(0.375 - x, pade_plus_0p3125_0p375);
-                    }
-                    else if (x <= 0.4375) {
-                        y = ApproxUtil.Pade(0.4375 - x, pade_plus_0p375_0p4375);
-                    }
-                    else if (x <= 0.46875) {
-                        y = ApproxUtil.Pade(0.46875 - x, pade_plus_0p4375_0p46875);
-                    }
-                    else if (x <= 0.484375) {
-                        y = ApproxUtil.Pade(0.484375 - x, pade_plus_0p46875_0p484375);
+                    else if (u <= 0.5) {
+                        v = ApproxUtil.Pade(u - 0.25, pade_plus_expm1p25_1p5);
                     }
                     else {
-                        y = ApproxUtil.Pade(0.5 - x, pade_plus_0p484375_0p5);
+                        v = ApproxUtil.Pade(u - 0.5, pade_plus_expm1p5_2);
                     }
-
-                    return y;
+                }
+                else if (exponent >= -4) {
+                    v = ApproxUtil.Pade(-Log2(ScaleB(x, 2)), pade_plus_expm2_4);
+                }
+                else if (exponent >= -8) {
+                    v = ApproxUtil.Pade(-Log2(ScaleB(x, 4)), pade_plus_expm4_8);
+                }
+                else if (exponent >= -16) {
+                    v = ApproxUtil.Pade(-Log2(ScaleB(x, 8)), pade_plus_expm8_16);
+                }
+                else if (exponent >= -32) {
+                    v = ApproxUtil.Pade(-Log2(ScaleB(x, 16)), pade_plus_expm16_32);
+                }
+                else if (exponent >= -64) {
+                    v = ApproxUtil.Pade(-Log2(ScaleB(x, 32)), pade_plus_expm32_64);
                 }
                 else {
-                    double v;
-                    int exponent = ILogB(x);
-
-                    if (exponent >= -4) {
-                        v = ApproxUtil.Pade(-Log2(ScaleB(x, 3)), pade_plus_expm3_4);
-                    }
-                    else if (exponent >= -8) {
-                        v = ApproxUtil.Pade(-Log2(ScaleB(x, 4)), pade_plus_expm4_8);
-                    }
-                    else if (exponent >= -16) {
-                        v = ApproxUtil.Pade(-Log2(ScaleB(x, 8)), pade_plus_expm8_16);
-                    }
-                    else if (exponent >= -32) {
-                        v = ApproxUtil.Pade(-Log2(ScaleB(x, 16)), pade_plus_expm16_32);
-                    }
-                    else if (exponent >= -64) {
-                        v = ApproxUtil.Pade(-Log2(ScaleB(x, 32)), pade_plus_expm32_64);
-                    }
-                    else if (exponent >= -96) {
-                        v = ApproxUtil.Pade(-Log2(ScaleB(x, 64)), pade_plus_expm64_96);
-                    }
-                    else {
-                        v = ScaleB(1d / Pi, -1);
-                    }
-
-                    double y = v / (x * x);
-
-                    return y;
+                    v = ScaleB(1d / Pi, -1);
                 }
+
+                double y = v / (x * x);
+
+                return y;
             }
         }
     }
