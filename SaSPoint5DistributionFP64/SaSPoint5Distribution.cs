@@ -1,7 +1,7 @@
 ﻿// Author and Approximation Formula Coefficient Generator: T.Yoshimura
 // Github: https://github.com/tk-yoshimura
 // Original Code: https://github.com/tk-yoshimura/SaSPoint5DistributionFP64
-// Yoshimura, T., "Numerical Evaluation and High Precision Approximation Formula for SαS point5 Distribution", June 2024.
+// Yoshimura, T., "Numerical Evaluation and High Precision Approximation Formula for SαS point5 Distribution", July 2024.
 // https://www.researchgate.net/publication/382124528_Numerical_Evaluation_and_High_Precision_Approximation_Formula_for_SaS_point5_Distribution
 
 using SaSPoint5DistributionFP64.InternalUtils;
