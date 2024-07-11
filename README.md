@@ -38,6 +38,10 @@ Double-Double Precision: [DoubleDoubleStatistic](https://github.com/tk-yoshimura
 If anyone would like to use some of the code in this repository, please contact me with an Issue and let me know.  
 [Issue](https://github.com/tk-yoshimura/SaSPoint5DistributionFP64/issues)
 
+## Report
+[ResearchGate](https://www.researchgate.net/publication/382124528_Numerical_Evaluation_and_High_Precision_Approximation_Formula_for_SaS_point5_Distribution)  
+[TechRxiv](https://www.techrxiv.org/users/661998/articles/1156268-numerical-evaluation-and-high-precision-approximation-formula-for-s%CE%B1s-point5-distribution)
+
 ## Author
 
 [T.Yoshimura](https://github.com/tk-yoshimura)
